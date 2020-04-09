@@ -1,19 +1,21 @@
 <template>
   <div>
-    <v-card class="mx-auto mt-2 mb-1" max-width="344" outlined color="#262626">
+    <v-card class="mx-auto mt-2 mb-1" max-width="380" outlined color="#262626">
       <v-list-item three-line>
-        <v-list-item-avatar tile size="80" color="grey"></v-list-item-avatar>
+        <v-list-item-avatar tile size="80px"
+          ><img :src="workoutInfo.photo_url" alt="" id="img" height="100%" cover
+        /></v-list-item-avatar>
         <v-list-item-content>
-          <v-list-item-title class="headline mb-1"
-            >Headline 5</v-list-item-title
-          >
-          <v-list-item-subtitle
-            >Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle
-          >
+          <v-list-item-title class="headline mb-1">{{
+            workoutInfo.name
+          }}</v-list-item-title>
+          <v-list-item-subtitle>{{
+            workoutInfo.description
+          }}</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
+      <v-divider class="grey mx-4"></v-divider>
     </v-card>
-    <v-divider class="mx-4"></v-divider>
   </div>
 </template>
 
@@ -21,7 +23,9 @@
 export default {
   name: "CardWorkout",
   data: () => ({}),
-  props: {}
+  props: {
+    workoutInfo: Object
+  }
 };
 </script>
 

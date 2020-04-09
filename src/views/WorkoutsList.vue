@@ -22,7 +22,12 @@
           PERSONALIZADOS
         </v-tab>
       </v-tabs>
-      <CardWorkout />
+      <CardWorkout
+        v-for="workout in workouts"
+        :key="workout.id"
+        :workoutInfo="workout"
+      />
+      <!-- {{ workouts }} -->
     </v-content>
     <BottomNav />
   </div>
@@ -31,12 +36,33 @@
 <script>
 import BottomNav from "../components/BottomNav";
 import CardWorkout from "../components/CardWorkout";
+import APIServices from "../services/Api";
 
 export default {
   name: "WorkoutsList",
+  data() {
+    return {
+      workouts: ""
+    };
+  },
   components: {
     BottomNav,
     CardWorkout
+  },
+  methods: {
+    getTemplateWorkouts() {
+      APIServices.getTemplateWorkouts()
+        .then(result => {
+          this.workouts = result;
+        })
+        .catch(err => {
+          console.log("hi");
+          console.log(err);
+        });
+    }
+  },
+  mounted() {
+    this.getTemplateWorkouts();
   }
 };
 </script>

@@ -20,5 +20,13 @@ export default {
       ...logUser
     });
     return response.data;
+  },
+  async getTemplateWorkouts() {
+    const response = await API.get("/workouts", {
+      headers: {
+        token: localStorage.getItem("token")
+      }
+    });
+    return response.data;
   }
 };
