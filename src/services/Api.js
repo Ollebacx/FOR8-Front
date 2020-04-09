@@ -28,5 +28,13 @@ export default {
       }
     });
     return response.data;
+  },
+  async WorkoutById(workoutId) {
+    const response = await API.get(`/workouts/${workoutId}`, {
+      headers: {
+        token: localStorage.getItem("token")
+      }
+    });
+    return response.data;
   }
 };

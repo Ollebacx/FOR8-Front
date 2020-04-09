@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar fixed color="#262626" dense dark>
+    <v-app-bar fixed color="#1A1A1A" dense dark>
       <v-btn icon>
         <router-link to="/workouts">
           <v-icon>mdi-arrow-left</v-icon>
