@@ -1,15 +1,31 @@
 <template>
   <div>
-    <v-container class="structure">
+    <v-container class="structure d-flex flex-column">
       <v-row>
         <v-col>
-          <div class="myWorkouts"></div>
+          <div class="myWorkouts">
+            <div>
+              <p id="title">Mis Workouts</p>
+            </div>
+            <div id="sub">
+              VER TODO
+            </div>
+          </div>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col>
           <v-img
             src="https://images.unsplash.com/photo-1585342565162-3704ff9b221d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60"
             aspect-ratio="2"
           >
             <p>Crear entrenamiento personalizado</p>
           </v-img>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
           <v-img
             src="https://images.unsplash.com/photo-1434682881908-b43d0467b798?ixlib=rb-1.2.1&auto=format&fit=crop&w=1353&q=80"
             aspect-ratio="2"
@@ -57,10 +73,28 @@ export default {
     margin: 20px auto !important;
     font-family: "Russo One", sans-serif;
     font-size: 24px;
+    text-shadow: 2px 3px #262626;
   }
 }
+
 .myWorkouts {
-  height: 220px;
+  height: 250px;
   background-color: #ffcb15;
+  #title {
+    font-family: "Russo One", sans-serif;
+    font-size: 32px;
+    text-shadow: none;
+    margin: 0px !important;
+    padding: 20px !important;
+  }
+  #sub {
+    width: 90%;
+    margin: auto !important;
+    color: #262626;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: right;
+  }
 }
 </style>
