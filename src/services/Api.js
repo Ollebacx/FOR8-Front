@@ -14,5 +14,11 @@ export default {
       ...newUser
     });
     return response.data;
+  },
+  async login(logUser) {
+    const response = await API.post("/auth/login", {
+      ...logUser
+    });
+    return response.data;
   }
 };
