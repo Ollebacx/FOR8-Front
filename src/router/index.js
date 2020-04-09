@@ -4,6 +4,7 @@ import Auth from "../views/Auth.vue";
 import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import Workouts from "../views/Workouts.vue";
+import WorkoutsList from "../views/WorkoutsList.vue";
 
 Vue.use(VueRouter);
 
@@ -35,6 +36,19 @@ const routes = [
     path: "/workouts",
     name: "Workouts",
     component: Workouts,
+    beforeEnter(to, from, next) {
+      if (!localStorage.getItem("token")) {
+        next({
+          name: "Auth"
+        });
+      }
+      next();
+    }
+  },
+  {
+    path: "/workouts/mis-workouts",
+    name: "WorkoutsList",
+    component: WorkoutsList,
     beforeEnter(to, from, next) {
       if (!localStorage.getItem("token")) {
         next({

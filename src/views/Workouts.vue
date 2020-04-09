@@ -8,7 +8,9 @@
               <p id="title">Mis Workouts</p>
             </div>
             <div id="sub">
-              VER TODO
+              <router-link to="/workouts/mis-workouts">
+                VER TODO
+              </router-link>
             </div>
           </div>
         </v-col>
@@ -90,7 +92,6 @@ export default {
   #sub {
     width: 90%;
     margin: auto !important;
-    color: #262626;
     font-family: "Montserrat", sans-serif;
     font-size: 18px;
     font-weight: 700;
