@@ -1,5 +1,5 @@
 <template>
-  <v-bottom-navigation :value="activeBtn" grow color="white" dark fixed bottom>
+  <v-bottom-navigation :value="activeBtn" grow color="white" dark>
     <v-btn disabled>
       <span>Inicio</span>
       <v-icon>mdi-home-variant</v-icon>

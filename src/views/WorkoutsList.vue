@@ -29,7 +29,9 @@
       />
       <!-- {{ workouts }} -->
     </v-content>
-    <BottomNav />
+    <v-footer app class="pa-0">
+      <BottomNav />
+    </v-footer>
   </div>
 </template>
 
@@ -56,7 +58,6 @@ export default {
           this.workouts = result;
         })
         .catch(err => {
-          console.log("hi");
           console.log(err);
         });
     }
@@ -68,14 +69,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.structure {
-  background-color: #262626;
-  min-height: 100vh;
-  text-align: center;
-  * {
-    color: white;
-    text-decoration-line: none;
-    font-family: "Montserrat", sans-serif;
-  }
+* {
+  color: white !important;
+  text-decoration-line: none;
+  font-family: "Montserrat", sans-serif;
 }
 </style>

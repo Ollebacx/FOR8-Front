@@ -1,9 +1,9 @@
 <template>
   <div>
-    <v-container class="structure d-flex flex-column">
+    <v-content>
       <v-row>
         <v-col>
-          <div class="myWorkouts">
+          <div class="myWorkouts mb-3">
             <div>
               <p id="title">Mis Workouts</p>
             </div>
@@ -16,7 +16,7 @@
         </v-col>
       </v-row>
 
-      <v-row>
+      <v-row class="mb-3">
         <v-col>
           <v-img
             src="https://images.unsplash.com/photo-1585342565162-3704ff9b221d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60"
@@ -36,8 +36,10 @@
           </v-img>
         </v-col>
       </v-row>
+    </v-content>
+    <v-footer app>
       <Bottom-Nav />
-    </v-container>
+    </v-footer>
   </div>
 </template>
 
@@ -60,9 +62,6 @@ export default {
   padding: 0px !important;
 }
 .structure {
-  background-color: #262626;
-  max-height: 100vh;
-  min-height: 100vh;
   text-align: center;
   * {
     color: white;
@@ -80,7 +79,7 @@ export default {
 }
 
 .myWorkouts {
-  height: 250px;
+  height: 200px;
   background-color: #ffcb15;
   #title {
     font-family: "Russo One", sans-serif;
