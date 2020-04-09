@@ -1,19 +1,19 @@
 <template>
   <div>
-    <v-container class="structure">
-      <v-app-bar fixed color="#262626" dense dark>
-        <v-btn icon>
-          <router-link to="/">
-            <v-icon>mdi-arrow-left</v-icon>
-          </router-link>
-        </v-btn>
-        <v-spacer></v-spacer>
-        <v-toolbar-title>Crear cuenta</v-toolbar-title>
-        <v-spacer></v-spacer>
-        <v-btn icon>
-          <v-icon></v-icon>
-        </v-btn>
-      </v-app-bar>
+    <v-app-bar fixed color="#262626" dense dark>
+      <v-btn icon>
+        <router-link to="/">
+          <v-icon>mdi-arrow-left</v-icon>
+        </router-link>
+      </v-btn>
+      <v-spacer></v-spacer>
+      <v-toolbar-title>Crear cuenta</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn icon>
+        <v-icon></v-icon>
+      </v-btn>
+    </v-app-bar>
+    <v-container>
       <v-row class="content">
         <v-col>
           <h3>¿Cómo te llamas?</h3>
@@ -106,26 +106,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.structure {
-  background-color: #262626;
-  min-height: 100vh;
-  text-align: center;
-  * {
-    color: white;
-    text-decoration-line: none;
-    font-family: "Montserrat", sans-serif;
-  }
-  h3 {
-    margin: 10px auto;
-  }
-  .content {
-    width: 90%;
-    margin: auto;
-    text-align: left;
-    margin-top: 40px;
-    .btn {
-      text-align: right !important;
-    }
+* {
+  color: white !important;
+  text-decoration-line: none;
+  font-family: "Montserrat", sans-serif;
+}
+h3 {
+  margin: 10px auto;
+}
+.content {
+  width: 90%;
+  margin: auto;
+  text-align: left;
+  margin-top: 40px;
+  .btn {
+    text-align: right !important;
   }
 }
 </style>
