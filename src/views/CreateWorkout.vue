@@ -1,5 +1,19 @@
 <template>
   <div>
+    <v-row class="message">
+      <v-overlay :value="overlay" opacity="0.9">
+        <span>
+          Se ha añadido "{{ workoutName }}" a tu lista de entrenamientos
+          personales.
+          <br />
+        </span>
+        <router-link to="/workouts/mis-workouts"
+          ><v-btn class="btn" x-large color="success" @click="overlay = false">
+            Ok
+          </v-btn></router-link
+        >
+      </v-overlay>
+    </v-row>
     <v-app-bar color="#1A1A1A" dense dark>
       <v-btn icon>
         <router-link to="/workouts">
@@ -81,7 +95,9 @@ export default {
       selected: [],
       outlined: true,
       solo: true,
-      clearable: true
+      clearable: true,
+      overlay: false,
+      zIndex: 0
     };
   },
   components: {
@@ -108,7 +124,7 @@ export default {
         exercises: this.selected
       };
       APIServices.createWorkout(userWorkout)
-        .then(console.log("new workout"))
+        .then((this.overlay = !this.overlay))
         .catch(err => {
           console.log(err);
         });
@@ -144,5 +160,17 @@ h2 {
 }
 #err {
   color: red;
+}
+.message {
+  margin-left: 80px;
+  text-align: center;
+  span {
+    margin-bottom: 100px !important;
+    font-size: 21px;
+  }
+  .btn {
+    width: 70%;
+    margin: 30px;
+  }
 }
 </style>
