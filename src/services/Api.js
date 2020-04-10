@@ -72,5 +72,13 @@ export default {
       }
     );
     return response.data;
+  },
+  async getUserWorkouts() {
+    const response = await API.get("/me/workouts", {
+      headers: {
+        token: localStorage.getItem("token")
+      }
+    });
+    return response.data;
   }
 };

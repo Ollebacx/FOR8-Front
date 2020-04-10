@@ -27,7 +27,11 @@
         :key="workout.id"
         :workoutInfo="workout"
       />
-      <!-- {{ workouts }} -->
+      <CardWorkout
+        v-for="userWorkout in userWorkouts"
+        :key="userWorkout.id"
+        :workoutInfo="userWorkout"
+      />
     </v-content>
     <v-footer app class="pa-0">
       <BottomNav />
@@ -44,7 +48,8 @@ export default {
   name: "WorkoutsList",
   data() {
     return {
-      workouts: ""
+      workouts: "",
+      userWorkouts: ""
     };
   },
   components: {
@@ -60,10 +65,19 @@ export default {
         .catch(err => {
           console.log(err);
         });
+    },
+    getUserWorkouts() {
+      APIServices.getUserWorkouts()
+        .then(result => {
+          this.userWorkouts = result;
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   },
   mounted() {
-    this.getTemplateWorkouts();
+    this.getTemplateWorkouts(), this.getUserWorkouts();
   }
 };
 </script>
