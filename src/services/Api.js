@@ -36,5 +36,13 @@ export default {
       }
     });
     return response.data;
+  },
+  async getExercises() {
+    const response = await API.get("/exercises", {
+      headers: {
+        token: localStorage.getItem("token")
+      }
+    });
+    return response.data;
   }
 };

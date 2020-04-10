@@ -28,12 +28,14 @@
       </v-row>
       <v-row>
         <v-col>
-          <v-img
-            src="https://images.unsplash.com/photo-1434682881908-b43d0467b798?ixlib=rb-1.2.1&auto=format&fit=crop&w=1353&q=80"
-            aspect-ratio="2"
-          >
-            <p>Ejercicios individuales</p>
-          </v-img>
+          <router-link to="/exercises">
+            <v-img
+              src="https://images.unsplash.com/photo-1434682881908-b43d0467b798?ixlib=rb-1.2.1&auto=format&fit=crop&w=1353&q=80"
+              aspect-ratio="2"
+            >
+              <p>Ejercicios individuales</p>
+            </v-img>
+          </router-link>
         </v-col>
       </v-row>
     </v-content>
