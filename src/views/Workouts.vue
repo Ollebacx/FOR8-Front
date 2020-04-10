@@ -18,12 +18,14 @@
 
       <v-row class="mb-3">
         <v-col>
-          <v-img
-            src="https://images.unsplash.com/photo-1585342565162-3704ff9b221d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60"
-            aspect-ratio="2"
-          >
-            <p>Crear entrenamiento personalizado</p>
-          </v-img>
+          <router-link to="/personalize">
+            <v-img
+              src="https://images.unsplash.com/photo-1585342565162-3704ff9b221d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60"
+              aspect-ratio="2"
+            >
+              <p>Crear entrenamiento personalizado</p>
+            </v-img>
+          </router-link>
         </v-col>
       </v-row>
       <v-row>

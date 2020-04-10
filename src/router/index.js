@@ -7,6 +7,7 @@ import Workouts from "../views/Workouts.vue";
 import WorkoutsList from "../views/WorkoutsList.vue";
 import Workout from "../views/Workout.vue";
 import Exercises from "../views/Exercises.vue";
+import CreateWorkout from "../views/CreateWorkout.vue";
 
 Vue.use(VueRouter);
 
@@ -77,6 +78,19 @@ const routes = [
     path: "/exercises",
     name: "Exercises",
     component: Exercises,
+    beforeEnter(to, from, next) {
+      if (!localStorage.getItem("token")) {
+        next({
+          name: "Auth"
+        });
+      }
+      next();
+    }
+  },
+  {
+    path: "/personalize",
+    name: "CreateWorkout",
+    component: CreateWorkout,
     beforeEnter(to, from, next) {
       if (!localStorage.getItem("token")) {
         next({

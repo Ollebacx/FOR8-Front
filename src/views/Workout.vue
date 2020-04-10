@@ -13,7 +13,6 @@
         <v-icon>mdi-plus</v-icon>
       </v-btn>
     </v-app-bar>
-    <!-- {{ workout.exercises }} -->
     <v-content>
       <Timer :rounds="workout.rounds" v-on:logworkout="logWorkout()" />
       <v-expansion-panels accordion tile dark>
