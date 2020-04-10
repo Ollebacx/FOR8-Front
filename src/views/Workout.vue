@@ -15,6 +15,7 @@
     </v-app-bar>
     <!-- {{ workout.exercises }} -->
     <v-content>
+      <Timer :rounds="workout.rounds" />
       <v-expansion-panels accordion tile dark>
         <v-expansion-panel
           v-for="exercise in workout.exercises"
@@ -33,7 +34,6 @@
       </v-expansion-panels>
     </v-content>
     <v-footer app class="pa-0">
-      <v-btn x-large block color="#FFCB15">EMPEZAR</v-btn>
       <BottomNav />
     </v-footer>
   </div>
@@ -41,6 +41,7 @@
 
 <script>
 import BottomNav from "../components/BottomNav";
+import Timer from "../components/Timer";
 import APIServices from "../services/Api";
 
 export default {
@@ -51,7 +52,8 @@ export default {
     };
   },
   components: {
-    BottomNav
+    BottomNav,
+    Timer
   },
   methods: {
     getWorkout() {
