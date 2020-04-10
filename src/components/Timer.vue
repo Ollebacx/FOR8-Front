@@ -21,7 +21,7 @@
       <v-icon color="white">mdi-chevron-right</v-icon>
     </v-sheet>
     <div id="timer">
-      <span id="minutes">{{ minutes * rounds }}</span>
+      <span id="minutes">{{ minutes }}</span>
       <span id="middle">:</span>
       <span id="seconds">{{ seconds }}</span>
     </div>

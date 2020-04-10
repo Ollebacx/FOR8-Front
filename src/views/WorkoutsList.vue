@@ -14,24 +14,36 @@
       </v-btn>
     </v-app-bar>
     <v-content>
-      <v-tabs fixed-tabs background-color="#262626" dark class="mt-12">
-        <v-tab>
+      <v-tabs
+        fixed-tabs
+        background-color="#262626"
+        dark
+        class="mt-12"
+        v-model="tab"
+      >
+        <v-tab key="for8">
           FOR8
         </v-tab>
-        <v-tab>
+        <v-tab key="yours">
           PERSONALIZADOS
         </v-tab>
       </v-tabs>
-      <CardWorkout
-        v-for="workout in workouts"
-        :key="workout.id"
-        :workoutInfo="workout"
-      />
-      <CardWorkout
-        v-for="userWorkout in userWorkouts"
-        :key="userWorkout.id"
-        :workoutInfo="userWorkout"
-      />
+      <v-tabs-items v-model="tab" class="content">
+        <v-tab-item key="for8">
+          <CardWorkout
+            v-for="workout in workouts"
+            :key="workout.id"
+            :workoutInfo="workout"
+          />
+        </v-tab-item>
+        <v-tab-item key="yours">
+          <CardWorkout
+            v-for="userWorkout in userWorkouts"
+            :key="userWorkout.id"
+            :workoutInfo="userWorkout"
+          />
+        </v-tab-item>
+      </v-tabs-items>
     </v-content>
     <v-footer app class="pa-0">
       <BottomNav />
@@ -48,6 +60,7 @@ export default {
   name: "WorkoutsList",
   data() {
     return {
+      tab: null,
       workouts: "",
       userWorkouts: ""
     };
@@ -56,28 +69,11 @@ export default {
     BottomNav,
     CardWorkout
   },
-  methods: {
-    getTemplateWorkouts() {
-      APIServices.getTemplateWorkouts()
-        .then(result => {
-          this.workouts = result;
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    },
-    getUserWorkouts() {
-      APIServices.getUserWorkouts()
-        .then(result => {
-          this.userWorkouts = result;
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }
-  },
-  mounted() {
-    this.getTemplateWorkouts(), this.getUserWorkouts();
+  async created() {
+    let templateWorkouts = await APIServices.getTemplateWorkouts();
+    this.workouts = templateWorkouts;
+    let userWorkouts = await APIServices.getUserWorkouts();
+    this.userWorkouts = userWorkouts;
   }
 };
 </script>
@@ -87,5 +83,8 @@ export default {
   color: white !important;
   text-decoration-line: none;
   font-family: "Montserrat", sans-serif;
+}
+.content {
+  background-color: #262626 !important;
 }
 </style>
