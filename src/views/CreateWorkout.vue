@@ -105,7 +105,7 @@ export default {
   },
   computed: {
     rest() {
-      return this.exercises.length - this.selected.length;
+      return 8 - this.selected.length;
     }
   },
   methods: {
