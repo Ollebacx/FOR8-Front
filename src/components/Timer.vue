@@ -89,7 +89,7 @@ export default {
         this.totalTime--;
       } else {
         this.totalTime = 0;
-        // this.$emit("logworkout");
+        this.$emit("logworkout");
         this.resetTimer();
         this.overlay = !this.overlay;
       }

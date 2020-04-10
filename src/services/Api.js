@@ -58,5 +58,19 @@ export default {
       }
     );
     return response.data;
+  },
+  async createWorkout(userWorkout) {
+    const response = await API.post(
+      "/me/workouts",
+      {
+        ...userWorkout
+      },
+      {
+        headers: {
+          token: localStorage.getItem("token")
+        }
+      }
+    );
+    return response.data;
   }
 };

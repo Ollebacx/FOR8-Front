@@ -34,7 +34,9 @@
             </p>
             <v-row class="btn">
               <v-col>
-                <v-btn large color="#AAAAAA">Siguiente</v-btn>
+                <v-btn @click="createWorkout()" color="#AAAAAA"
+                  >Siguiente</v-btn
+                >
               </v-col>
             </v-row>
           </v-col>
@@ -96,6 +98,17 @@ export default {
         .then(result => {
           this.exercises = result;
         })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    createWorkout() {
+      const userWorkout = {
+        name: this.workoutName,
+        exercises: this.selected
+      };
+      APIServices.createWorkout(userWorkout)
+        .then(console.log("new workout"))
         .catch(err => {
           console.log(err);
         });
