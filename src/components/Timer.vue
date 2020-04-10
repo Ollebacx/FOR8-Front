@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row class="message">
-      <v-overlay :absolute="absolute" :value="overlay" opacity="0.9">
+      <v-overlay :value="overlay" opacity="0.9">
         <span>
           ¡Enhorabuena! <br />
           Has terminado tu workout de hoy. <br />
@@ -56,7 +56,7 @@ export default {
   data: function() {
     return {
       timer: null,
-      totalTime: this.rounds * 1 * 1,
+      totalTime: this.rounds * 8 * 60,
       resetButton: false,
       overlay: false,
       zIndex: 0
