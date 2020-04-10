@@ -44,5 +44,19 @@ export default {
       }
     });
     return response.data;
+  },
+  async logWorkout(newWorkout) {
+    const response = await API.post(
+      "/me/workoutsLog",
+      {
+        ...newWorkout
+      },
+      {
+        headers: {
+          token: localStorage.getItem("token")
+        }
+      }
+    );
+    return response.data;
   }
 };

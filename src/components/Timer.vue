@@ -1,5 +1,19 @@
 <template>
   <div>
+    <v-row class="message">
+      <v-overlay :absolute="absolute" :value="overlay" opacity="0.9">
+        <span>
+          ¡Enhorabuena! <br />
+          Has terminado tu workout de hoy. <br />
+          Recuerda estirar y mantenerte hidratado después de cada sesión. <br />
+        </span>
+        <router-link to="/workouts"
+          ><v-btn class="btn" x-large color="success" @click="overlay = false">
+            Ok
+          </v-btn></router-link
+        >
+      </v-overlay>
+    </v-row>
     <!-- Rounds Counter -->
     <v-sheet dark class="rounds" color="#262626" tile width="100%" height="40px"
       ><v-icon color="white">mdi-chevron-left</v-icon>
@@ -42,8 +56,10 @@ export default {
   data: function() {
     return {
       timer: null,
-      totalTime: this.rounds * 8 * 60,
-      resetButton: false
+      totalTime: this.rounds * 1 * 1,
+      resetButton: false,
+      overlay: false,
+      zIndex: 0
     };
   },
   props: {
@@ -73,7 +89,9 @@ export default {
         this.totalTime--;
       } else {
         this.totalTime = 0;
+        // this.$emit("logworkout");
         this.resetTimer();
+        this.overlay = !this.overlay;
       }
     }
   },
@@ -93,7 +111,8 @@ export default {
 <style lang="scss" scoped>
 #timer {
   font-size: 120px;
-  font-family: "Russo One", sans-serif;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
   text-align: center;
   line-height: 100px;
   margin-bottom: 40px;
@@ -106,6 +125,18 @@ export default {
     font-size: 16px;
     font-weight: 700;
     margin: 0px 15px;
+  }
+}
+.message {
+  margin-left: 80px;
+  text-align: center;
+  span {
+    margin-bottom: 100px !important;
+    font-size: 21px;
+  }
+  .btn {
+    width: 70%;
+    margin: 30px;
   }
 }
 </style>

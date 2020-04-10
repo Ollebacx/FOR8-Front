@@ -87,6 +87,7 @@ export default {
             this.userInvalid = true;
           } else {
             localStorage.setItem("token", response.token);
+            localStorage.setItem("id", response.id);
             this.$router.push("/workouts");
           }
         })

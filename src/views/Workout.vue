@@ -15,7 +15,7 @@
     </v-app-bar>
     <!-- {{ workout.exercises }} -->
     <v-content>
-      <Timer :rounds="workout.rounds" />
+      <Timer :rounds="workout.rounds" v-on:logworkout="logWorkout()" />
       <v-expansion-panels accordion tile dark>
         <v-expansion-panel
           v-for="exercise in workout.exercises"
@@ -61,6 +61,20 @@ export default {
         .then(result => {
           this.workout = result;
         })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    logWorkout() {
+      const newWorkout = {
+        user: localStorage.getItem("id"),
+        name: this.workout.name,
+        rounds: this.workout.rounds,
+        workout: this.workout._id,
+        exercises: this.workout.exercises
+      };
+      APIServices.logWorkout(newWorkout)
+        .then(console.log("paso por aquí"))
         .catch(err => {
           console.log(err);
         });
