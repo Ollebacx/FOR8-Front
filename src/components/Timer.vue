@@ -21,7 +21,7 @@
       <v-icon color="white">mdi-chevron-right</v-icon>
     </v-sheet>
     <div id="timer">
-      <span id="minutes">{{ minutes }}</span>
+      <span id="minutes">{{ minutes * rounds }}</span>
       <span id="middle">:</span>
       <span id="seconds">{{ seconds }}</span>
     </div>
@@ -56,7 +56,7 @@ export default {
   data: function() {
     return {
       timer: null,
-      totalTime: this.rounds * 8 * 60,
+      totalTime: 5 * 1,
       resetButton: false,
       overlay: false,
       zIndex: 0
@@ -76,7 +76,7 @@ export default {
       this.resetButton = true;
     },
     resetTimer: function() {
-      this.totalTime = this.rounds * 8 * 60;
+      this.totalTime = 8 * 60 * this.rounds;
       clearInterval(this.timer);
       this.timer = null;
       this.resetButton = false;
