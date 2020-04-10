@@ -99,7 +99,7 @@ export default {
           localStorage.setItem("token", response.token);
           this.$router.push("/workouts");
         })
-        .catch(alert("Esta cuenta ya existe"));
+        .catch(err => console.log(err));
     }
   }
 };
